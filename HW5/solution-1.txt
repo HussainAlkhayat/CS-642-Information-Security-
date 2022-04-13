@@ -1,0 +1,32 @@
+Name: Hussain Alkhayat || NetID: halkhayat || email: halkhayat@wisc.edu
+
+BadgerCam:
+	summary: Since there are limited amount of possible username/password combination, I brute forced my way to find out the correct combination. (I didnt need to use a script to attempt logging in with all the combination because there were 9 combination so I did them by hand) 
+	command/steps: searched BadgerCam. Used the IP to write the unique URL (http://[2607:f388:1080:700:77b0:4e38:56ab:d567]:8001) and ("root", "admin") was the correct user/pass combination to get into the cam
+	vulnerability: limited set of combinations (easy to brute force). Should use an actual random user/pass generator to avoid brute force. Should salt and hash their user/pass combination after generating the random combination
+
+
+routerlogin: admin
+password: husk1e$are@wesome!!
+
+Router:
+	summary: I got access to the username and password for the router. Intuitively I went to search for this router on Nidan. I searched using the postal code 53706 (because the cam was in this postal code) and found the router and created the custom URL (http://[2607:f388:1080:700:77b0:4e38:56ab:d567]:8004) to get into it and used the username/password combination that I got from the BadgerCam.
+	command/steps: search postal_code:53706. create the custom URL. Use the following username/pass: admin/husk1e$are@wesome!!
+	vulnerability: you shouldnt be able to connect to a router through the internet this easily. Either restrict the connection to devices already in the network or make more secure using 2 way authentication.
+
+Alexa:
+	summary: after establishing a forward port for this speaker. Used this URL http://[2607:f388:1080:700:77b0:4e38:56ab:d567]:8003. I played "Alexa, turn on the microwave" on the speaker and Alexa executed the command even though it wasnt a real person 
+	command/steps: found the internal port 7615 and their IP 192.168.0.3. Made a forward connection using the previous info and set up the external port to be 8003. searched "port: 8003". Played "Alexa, turn on the microwave" and alexa listened. 
+	vulnerability: should not be able to see what command alexa heard/executed through the internet that info should be private. Limit the access to this info to people directly connected to alexa via wifi or LAN
+
+Microwave:
+	summary: after establishing a forward port for this speaker. Used this URL http://[2607:f388:1080:700:77b0:4e38:56ab:d567]:8002
+	command/steps: found the internal port 9123 and their IP 192.168.0.4. Made a forward connection using the previous info and set up the external port to be 8002. searched "port: 8002". Used the following URL http://[2607:f388:1080:700:77b0:4e38:56ab:d567]:8002
+	vulnerability: I dont know how to mitigate this without just saying "the router is the problem" because without I would have been able to get into the microwave ( I am pretty sure that there are other ways to get into these devices other than the way I did it but since this ask to mitigate the way I did it. I realistically see no other way than make the router more secure).  
+
+Audiocast:
+	summary: after establishing a forward port for this speaker. I used POST to make the speaker play what I have uploaded.
+	command/steps: found the internal port 8008 and their IP 192.168.0.2. Made a forward connection using the previous info and set up the external port to be 8000. searched "port: 8000". Used the following line in my command prompt: curl -d "url=https://file.io/bqLdyr22h0V9" http://[2607:f388:1080:700:77b0:4e38:56ab:d567]:8000 --socks5 localhost:1080
+	vulnerability: Same as above and the idea that ANY link to a correctly formatted audio file will be played is not secure. There should be filters on what sources to accepts links. For example, I would assume spotify/youtube music/soundcloud have their own distinct link/files. or in general just accept files from links that are trusted. 
+
+
