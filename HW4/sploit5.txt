@@ -1,0 +1,4 @@
+Use this file to explain how your sploit5 works.
+I mismaneged my time and couldnt do this but here is the correct idea ( i am not that sure of it ):
+this is a string format vunerability.
+since snprint does not checl the content of the string we can overwrite eip values stored on the stack of "foo" with the address of our shellcode

@@ -1,0 +1,7 @@
+Use this file to explain how your sploit3 works.
+what is the bug in the corresponding target?
+integer overflow vulnerability becuase of memcpy
+how you exploit it?
+filled my buffer with NOP's, than I copy into it the count value of -2147483889. this value will be casted from a unsigned long integer on the function strloul to a posativesigned integer of value 2147483407. will pass the "memcpy" condition in C, that is exactly my attack buffer size.
+where the various constants in your exploit come from?
+0xbfffea48: addr of shellcode

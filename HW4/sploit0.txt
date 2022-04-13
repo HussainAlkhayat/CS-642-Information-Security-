@@ -1,0 +1,9 @@
+Use this file to explain how your sploit0 works.
+
+what is the bug in the corresponding target?
+strcpy dost not stop at the len of the current string that is being copied. Thus, it will only end when it read an end-of-line char. thus we can force it to read mallicous code
+how you exploit it?
+pass in a buffer that is longer then expected and fill it with the foloowing: fill with junk, after the expected size which is 30 put the value of the stp then the addr of the jump if equal.
+where the various constants in your exploit come from?
+0xbffff848: stp value 
+0x08048515: command "disassemble" and this is the value for the the command that will jump to line 30 which is "grade = 'A'"

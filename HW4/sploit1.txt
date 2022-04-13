@@ -1,0 +1,7 @@
+Use this file to explain how your sploit1 works.
+what is the bug in the corresponding target?
+strcpy dost not stop at the len of the current string that is being copied. Thus, it will only end when it read an end-of-line char. thus we can force it to read mallicous code
+how you exploit it?
+after the correct size fo the string let the strcpy function read mallicous data. I put 8 bytes of hex values that will make the EIP go the the address of the root/shell call and there it will start the shell. the stack looks like this buffer[size = 200], ebp, eip 
+where the various constants in your exploit come from?
+0xbffffd38: addr of my shellcode

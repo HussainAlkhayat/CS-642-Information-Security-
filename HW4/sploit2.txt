@@ -1,0 +1,8 @@
+Use this file to explain how your sploit2 works.
+what is the bug in the corresponding target?
+very similar to strcpy but it only allowed 1 byte to read after the buffer (due to it going from 0 to len and NOT 0 to len - 1)
+this lets us to overwrite the last byte in EBP 
+how you exploit it?
+altering EBP on the stack leads to altering ESP and make it goes to shellcode address on the EIP 
+where the various constants in your exploit come from?
+Shellcode Address: 0xbffffd28+ 156 - 4  = 0xbfffffd70 that is buffer addr + 156 for NOPS and shellcode and -4 becuase of th one byte

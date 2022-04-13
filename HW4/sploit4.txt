@@ -1,0 +1,9 @@
+Use this file to explain how your sploit4 works.
+what is the bug in the corresponding target?
+double free vulnerability
+how you exploit it?
+pointer qis freed twice
+
+I mismaneged my time when doing this hw so i disnt do it but the main idea is the follwoing:
+the buffer will be copied to p which is the space of the freed pointer q
+using this we can write 4 bytes anywhere we want and similairy to sploit3 using 4 bytes we can run shell
