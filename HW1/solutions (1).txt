@@ -1,0 +1,60 @@
+Name: hussain Alkhayat
+Email: halkhayat@wisc.edu
+# Part A:
+
+## Recovered passwords
+a) 63953293
+b) 11232020
+
+## Pseudocode for attack
+I used brute force:
+construct 8 nested for loops ( 1 for each digit )
+for digit1 in possibleNum
+	for digit2 in possibleNum
+		:
+		:
+		:
+		guess = digit1 + digit2 + .... + digit8
+		wantToHash = user + "," + guess + "," + salt
+encode wantToHAsh, then hash it using sha265, then hex it
+compare the value that we have with the correct hash
+if they are equal then we found the password!
+
+where possibleNum = ["", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+the first value in this list is an empty string to acomedate the follwoing examples: "12" "1234" ...
+
+
+## Worst case running time
+O(10^n) where n is the number of digits
+## Discussion merits of current proposal
+Since we are using a good hash function, we can assume that it has both qualities: One-way, collision resistance.
+However, since the salt is small trying to bruto force common passwords is not that difficult 
+## Suggestions for improvement
+instead of using sha256 (which is secure but fast to compute), we should consider a much slower hash function to avoid both brute force and rainbow attack
+
+# Part B:
+
+## Discussion of the current scheme
+if anyone who has access to the cipher text and relative information about the plaintext, they can easily change the plain text.
+For example, i have access to iv and the relative infor about the text (the first block conatins the value of the transaction) 
+## Suggestions for improving the scheme
+you can use MACs to authenticate the message, thus cant accept message from an advesary 
+
+# Extra Credit:
+
+## Recovered password
+Wisc0nsin!
+## Correct pseudocode
+open the crackstation human only file
+loop through each line
+	remove the end of line chat by using ".strip()"
+	check if it follows ALL these rules:
+	1- has length >= 6 
+	2- contain AT LEAST 3 out of the four char classes:
+		a. lower case letter (a-z)
+		b. upper case letters (A-Z)
+		c. symbol (~`!@#$%^&*()+=_-{}[]\|:;”’?/<>,.)
+		d. digit(0-9)
+	if it checks both rules then use hashlib.scrypt with the correct values to see if it equal to the expected hash
+	hashlib.scrypt(password=("bucky,"+item).encode(), salt=salt.encode(), n=16, r=32, p=1).hex()
+	where item is the item is the valid password from the file
