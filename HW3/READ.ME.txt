@@ -1,0 +1,12 @@
+ARP Spoofing describtion:
+	loop through the file, check if current line is ARP type, if one of the predetrimned IP is in this ARP data, check if they have diff MAC, if they do then this is spoofing.
+
+Port scan describtion:
+	loop through the file, check if current line is udp or (tcp and flag TH_SYN), add to a list of ips and ports if the port is unqiue, After going through every line, check if there exist an IP with more than 100 unqiue ports connecting to it. print it
+
+SYN flood describtion:
+	loop through the file, check if current line is tcp and flag TH_SYN, add to a list of ips, timestamp, port, num, if the list reaches 100, check if the timestamps diff between the first one and last one is < 1, thats a flood, if we reached 100 and the diff is >=1 then remove the first elemnt in the list.
+
+REFRENCE:
+line 65 was taken from https://stackoverflow.com/questions/25370010/parsing-ip-address-with-dpkt
+line 71 was taken from https://stackoverflow.com/questions/11178061/print-list-without-brackets-in-a-single-row

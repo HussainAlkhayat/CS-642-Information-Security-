@@ -1,0 +1,83 @@
+# Your UW ID and your name - there is no special format for this. (This homework ought to be done individually)
+ID: halkhayat
+Name: Hussain Alkhayat
+
+# Trace 1: HTTP
+## Give three websites (domain Nname and IP addresses) visited from source IP address `192.168.0.100`
+
+Name: accounts.google.com IP: 74.125.225.81
+Name: www.amazon.com IP: 205.251.242.54
+Name: a1248.g.akamai.net IP: 23.396.123
+
+## Give three search queries and the domain of the site for each query made from source IP address `192.168.0.100`
+Name: www.bing.com Search: chicago metro 
+Name: www.bing.com Search: madison map
+Name: www.amazon.com Search:adventures in Stochastic Processes
+
+# Trace 2: FTP
+## What is the user name and password used to connect to the FTP server?
+User: shiningmoon Pass: public
+## List any (and all) files that were downloaded.
+dragon.zip
+ARP.java
+L2Switch.java
+phase1.html
+## List the full path for two files (in different directories) on the FTP server that were NOT downloaded.
+/TeNet/Javadoc.7z
+/TeNet/Project
+/TeNet/RESULT.xlsx
+/TeNet/framework-cleaned
+/TeNet/framework-cleaned.7z
+/TeNet/framework-cleaned.zip
+/TeNet/framework.build.110918.jar
+/TeNet/framework.build.111129.jar
+/TeNet/Javadoc
+/TeNet/Javadoc.zip
+/TeNet/phase1
+/TeNet/phase1.ppt
+/TeNet/phase1.zip
+/phase1/StoreForwardingDatalink.java
+
+
+# Trace 3: Traceroute
+## Briefly describe how the traceroute tool works including which network protocols are in use.
+It will find the path that your package will take if sent, WITHOUT sending your own package. Also, it will get the routers that it passes by.
+
+Two protocols are in use:
+UDP
+ICMP
+
+## Give the source IP address that issued the traceroute command and the destination IP address.
+Source IP: 192.168.0.100
+Dest IP: 74.125.225.46
+
+## List the IP addresses on the route between source and destination.
+192.168.0.100
+192.168.0.1
+10.131.180.1
+96.34.20.20
+96.34.17.95
+96.34.16.112
+96.34.16.77
+96.34.2.4
+96.34.0.7
+96.34.0.9
+96.34.3.9
+96.34.152.30
+209.85.254.120
+209.85.250.28
+74.125.225.46
+
+# Trace 4: POP
+## What is the POP username and password?
+USER: cs155@dummymail.com
+PASS: whitehat
+## How many emails are in the user's mailbox?
+5
+## Give the contents of from, to, subject, and date for one email message.
+From: joe cs155@dummymail.com 
+To: cs155@dummymail.com
+Subject: can you see this subject?
+Date: Fri, 23 Apr 2010
+## What email client (application) and operating system is this person using to send and receive email?
+app:Thunderbird 2.0.0.23 OS: Windows/20090812
